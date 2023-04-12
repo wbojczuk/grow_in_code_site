@@ -1,0 +1,224 @@
+*{
+    margin:0;
+    padding: 0;
+}
+#pageID{
+    display: none;
+}
+
+body{
+    background-color: #1F242D;
+    font-family: "Kanit", sans-serif;
+    color: white;
+}
+#allContent{
+    display: inline-block;
+    position: relative;
+    width: 90%;
+    left:0;
+}
+#sideBar{
+    position: fixed;
+    margin-top: 4vw;
+    right:10%;
+    top:0;
+    height: 100%;
+    width: 8px;
+    background-color: #22AAA2;
+    z-index: 900;
+}
+#mainSection{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background-image: url("/img/main_mobo.png");
+    background-size: auto;
+    background-position: 80% center;
+    background-repeat: no-repeat;
+    margin-top: 4vw;
+}
+
+#aboutUs{
+    position: absolute;
+    height: 50%;
+    top: 25%;
+    width: 30%;
+    margin-left: 10%;
+}
+#aboutUs h2{
+letter-spacing: 0.5em;
+font-size: 2.8vw;
+font-weight: 300;
+}
+#aboutUs div{
+    font-size: 1.2vw;
+    font-weight: 200;
+}
+#aboutUs a{
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    background-color: #22AAA2;
+    transition: 0.3s background-color;
+    color: #000000;
+    width: 80%;
+    margin-top: 5%;
+    font-size: 2vw;
+    font-weight: 100;
+    border-radius: 6px;
+}
+#aboutUs a:hover{
+    background-color: #1b8881;
+}
+#featuredBlogsContainer, #latestBlogsContainer, #improveBlogsContainer{
+    padding: 2vw 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#featuredBlogsTitle, #latestBlogsTitle, #improveBlogsTitle{
+    font-weight: 100;
+    padding-left: 2vw;
+    font-size: 5.5vw;
+}
+/* Blog Card */
+.blog-card{
+    display: inline-block;
+    width: 25vw;
+    aspect-ratio: 1/1;
+    background-color: #17191C;
+    margin: 0 1vw;
+    border-radius: 20px;
+    position: relative;
+    color: white;
+    text-decoration: none;
+}
+.blog-card::after{
+    position: absolute;
+    content: "Read More";
+    background-color: #22AAA2;
+    color: #000;
+    text-align: center;
+    display: inline-block;
+    width: 50%;
+    top:0;
+    right:0;
+    padding: 0.5vw 0;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    font-size: 1.8vw;
+    font-weight: 300;
+}
+.blog-card .title{
+    display: inline-block;
+    font-weight:100;
+    font-size: 2.5vw;
+    margin-top: 20%;
+    width: 90%;
+    margin-left: 5%;
+}
+.blog-card .desc{
+    display: inline-block;
+    font-weight:100;
+    font-size: 1.3vw;
+    margin-top: 5%;
+    width: 80%;
+    margin-left: 10%;
+    color: rgb(235, 235, 235);
+}
+
+/* FOOTER */
+footer{
+    position: relative;
+    height: 30vh;
+    background-color: #1A1C1E;
+    z-index: 950;
+    margin-top: 10vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    width: 100%;
+    color: #22AAA2;
+}
+
+footer .socials, footer .contact{
+    margin-top: 0;
+    width: 25%;
+    height: 100%;
+    display: inline-block;
+    position: relative;
+    z-index: 999;
+}
+footer .socials .title, footer .contact .title{
+    font-family: "Atomic Age", serif;
+    text-align: center;
+    font-size: 3vw;
+    font-weight: 200;
+    width: 100%;
+}
+
+footer .socials .social-icons{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    top: 10%;
+}
+footer .socials .social-icons a{
+    width: 20%;
+    aspect-ratio: 1/1;
+    margin: 2%;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.social-icons .twitter{
+    background-image: url(/img/twitter.svg);
+}
+.social-icons .instagram{
+    background-image: url(/img/instagram.svg);
+}
+.social-icons .youtube{
+    background-image: url(/img/youtube.svg);
+}
+
+.contact-items a{
+    color: #22AAA2;
+    display: block;
+    text-align: center;
+    font-size: 1.2vw;
+}
+
+#newsLetterHighlighter{
+    position: fixed;
+    display: none;
+    background-color: rgba(0,0,0,0.7);
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    z-index: 950;
+}
+
+#newsletterSection{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10vh 0;
+    z-index: 960;
+}
+#embeddedNewsletterWrapper{
+    display: inline-block;
+    width: 60%;
+    height: 25vh;
+    border-left: 2px solid #22AAA2;
+    border-right: 2px solid #22AAA2;
+    background-color: #1F242D;
+}
+#embeddedFormDesc{
+    font-size: 1.3vw;
+    line-height: normal;
+}

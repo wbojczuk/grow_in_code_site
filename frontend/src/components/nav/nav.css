@@ -1,0 +1,210 @@
+  @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500&family=Roboto:wght@100;300;400&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Atomic+Age&display=swap');
+.mobile{
+    display: none;
+}
+#mainNav{
+    --secondary-navbg-color: white;
+    --primary-navbg-color: #1a1c1e;
+    --primary-navtext-color: #fff;
+    --primary-nav-font: "Roboto", sans-serif;
+    --secondary-nav-font: "Kanit", sans-serif;
+    --nav-underline-color: #fff;
+
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 4vw;
+    padding: 1vw 0;
+    z-index: 999;
+}
+#mainNav.primary{
+    background-color:var(--primary-navbg-color);
+}
+#mainNav.secondary{
+    box-shadow: 0px 1px 4px rgba(0,0,0,0.4);
+    background-color: var(--primary-navbg-color);
+}
+
+#mainNavLogo{
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 70%;
+    width: 40%;
+    left: 30%;
+    top:15%;
+    font-family: "Atomic Age", serif;
+    font-weight: 300;
+    font-size: 4vw;
+    color: var(--primary-navtext-color);
+    text-decoration: none;
+}
+#mainNav ul{
+    list-style-type: none;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+    margin: 0;
+    margin-left: 2vw;
+}
+#mainNav ul li{
+ margin: 1vw;   
+}
+
+#mainNav ul li a{
+    color: var(--primary-navtext-color);
+    font-family: var(--secondary-nav-font);
+    font-weight: 200;
+    text-decoration: none;
+    font-size: 1.2vw;
+    position: relative;
+    transition: 0.2s color;
+}
+#mainNav ul li a:hover{
+    color: #c7c7c7;
+}
+#mainNav ul li a.active::after{
+    content: "";
+    display: inline-block;
+    height: 1px;
+    width: 100%;
+    background-color: var(--nav-underline-color);
+    position: absolute;
+    left:0;
+    bottom: -0.5vw;
+}
+/* Tablet Styles */
+@media only screen and (min-width: 651px) and (max-width: 959px){
+    #mainNav{
+        height: 6vw;
+        padding: 1vw 0;
+    }
+    
+    #mainNavLogo{
+        width: auto;
+        position: absolute;
+        right: 0%;
+        font-size: 5vw;
+    }
+    
+    #mainNav ul li a{
+        font-size: 2.5vw;
+    }
+}
+/* Mobile Styles */
+@media only screen and (max-width: 650px) {
+    .mobile{
+        display: inline-block;
+    }
+
+    #mainNav{
+        position: fixed;
+        padding: 2vh 0;
+        box-shadow: 0px 1px 4px rgba(0,0,0,0.4);
+        background-color: var(--primary-navbg-color);
+        z-index: 997;
+    }
+
+    #mainNavLogo{
+        right: 0%;
+        left: initial;
+        width: 40%;
+        font-size: 2.5vh;
+        height: 100%;
+        top:0;
+        z-index: 999;
+        --navlogo-underline-width: 00%;
+    }
+    #mainNavLogo::after{
+        content: "";
+        position: absolute;
+        height: 1px;
+        width: var(--navlogo-underline-width);
+        bottom: 0vh;
+        right:2px;
+        background-color: var(--nav-underline-color);
+    }
+
+    #mainNav ul{
+        flex-direction: column;
+        gap:0;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        background-color: var(--primary-navbg-color);
+        position: absolute;
+        left:0;
+        margin-left:0;
+        top: 0;
+        z-index: 998;
+        height: 100vh;
+        clip-path: circle(0% at 0 0);
+        border-bottom-right-radius: 10px;
+        padding-left: 0;
+    }
+    #mainNav ul li a{
+        display: inline-block;
+        margin: 0.5vh 0;
+        font-size:5vh;
+        position: relative;
+        transition: 0.2s color;
+        width: 100%;
+        text-align: center;
+       
+    }
+    #mainNav ul li{
+        text-align: center;
+        margin: 0 0;
+        padding: 2vh 0;
+        opacity: 0;
+        width: 90%;
+        margin-left: 0%;
+    }
+    #mainNav ul li:nth-of-type(even){
+        transform: translateX(-20px);
+    }
+    #mainNav ul li:nth-of-type(odd){
+        transform: translateX(20px);
+    }
+    #mainNav ul li:not(#mainNav ul li:nth-last-child(1)){
+        border-bottom: 2px solid var(--secondary-navbg-color);
+    }
+
+    #mainNav ul li a.active::after{
+        display: none;
+    }
+
+
+    #mainNavHamburger{
+        width: 5vh;
+        aspect-ratio: 1/1;
+        position: absolute;
+        top: calc(50% - (5vh / 2));
+        left:0;
+        background-image: url("hamburger_menu.svg");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: 999;
+    }
+    #mainNavExit{
+        width: 5vh;
+        aspect-ratio: 1/1;
+        position: absolute;
+        top: calc(50% - (5vh / 2));
+        left:0;
+        background-image: url("exit.svg");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: rotate(360deg) scale(0);
+        opacity: 0;
+        z-index: 999;
+    }
+
+}
