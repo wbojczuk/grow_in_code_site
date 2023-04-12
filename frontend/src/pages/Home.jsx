@@ -11,6 +11,9 @@ export default function Home(){
 
     return(
         <>
+        <div id="blueGlow1"></div>
+        <div id="blueGlow2"></div>
+        <div id="blueGlow3"></div>
         <div id="newsLetterHighlighter">
             <div id="newsletterHighlighterExit"></div>
         </div>
