@@ -639,9 +639,7 @@ const newsLetterHTML = `
     </div>
   <script>
     function ml_webform_success_4554596() {
-      console.log("HEY")
         window.location.href = 'https://growincode.com/newsletter';
-      
     }
       </script>
       <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v59ea44790c5c0deef53b8c1ad21b8cc9" type="text/javascript"></script>
@@ -658,13 +656,15 @@ const newsLetterHTML = `
           })
           // ADD FOCUS INTERSECTION TRIGGER
           const newsLetterHighlighter = document.getElementById("newsLetterHighlighter");
-          if(!window.localStorage.getItem("embeddedNewsletterStatus") || window.localStorage.getItem("embeddedNewsletterStatus") != "true"){jsdev.intersectionTrigger("#embeddedNewsletterWrapper", {
+          if(!window.localStorage.getItem("embeddedNewsletterStatus") || window.localStorage.getItem("embeddedNewsletterStatus") != "true"){
+            jsdev.intersectionTrigger("#embeddedNewsletterWrapper", {
             thresholdIn: 1,
             thresholdOut: 0.6,
             repeat: false,
             onTrigger: handleTrigger,
             onExit: handleExit
           })}
+          newsLetterHighlighter.addEventListener("click", handleExit)
           function handleTrigger(){
             newsLetterHighlighter.style.display = "block";
           }

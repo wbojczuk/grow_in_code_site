@@ -11,6 +11,11 @@ body{
     font-family: "Kanit", sans-serif;
     color: white;
 }
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 #blueGlow1{
     display: inline-block;
     width: 20vw;
@@ -80,6 +85,47 @@ body{
     margin-top: 4vw;
 }
 
+#aboutMe{
+    position: absolute;
+    color: black;
+    background-color: #22AAA2;
+    font-size: 1.5vw;
+    top: 8vh;
+    left: 25vw;
+    font-family: "Kanit", sans-serif;
+    font-weight: 300;
+    display: inline-block;
+    padding: 0.5vw 1.5vw;
+    transform-origin: left;
+    rotate: -2deg;
+    text-decoration: none;
+}
+
+#aboutMe:hover{
+    text-decoration: underline;
+}
+
+#aboutMe::after{
+    content: "";
+    position: absolute;
+    height: 7vh;
+    width: 2px;
+    top: -7vh;
+    left: 0.5vw;
+    background-color: #e0e0e0;
+    rotate: 2deg;
+}
+#aboutMe::before{
+    content: "";
+    position: absolute;
+    height: 7vh;
+    width: 2px;
+    top: -7vh;
+    right: 0.5vw;
+    background-color: #e0e0e0;
+    rotate: 2deg;
+}
+
 #aboutUs{
     position: absolute;
     height: 50%;
@@ -123,6 +169,11 @@ font-weight: 300;
     font-weight: 100;
     padding-left: 2vw;
     font-size: 5.5vw;
+    color: transparent;
+    display: inline-block;
+    background: linear-gradient(to right, #ffffff, #dce5f6, #a7d1e9, #66bece, #22aaa2);
+    background-clip: text;
+    -webkit-background-clip: text;
 }
 /* Blog Card */
 .blog-card{
@@ -156,6 +207,10 @@ font-weight: 300;
     font-size: 1.8vw;
     font-weight: 300;
 }
+.blog-card:hover::after{
+    text-decoration: underline;
+}
+
 .blog-card .title{
     display: inline-block;
     font-weight:100;
@@ -238,6 +293,68 @@ footer .socials .social-icons a:hover, .contact-items a:hover{
     display: block;
     text-align: center;
     font-size: 1.2vw;
+}
+
+/* CATEGORIES */
+#categoriesSection .title{
+    font-weight: 100;
+    font-size: 5.5vw;
+    text-align: center;
+    margin-top: 5vh;
+    font-family: "Atomic Age", serif;
+}
+#categoryWrapper{
+display: inline-flex;
+width: 50%;
+flex-wrap: wrap;
+margin: 5vh 25% 10vh 25%;
+}
+#categoriesSection .category{
+    margin: 1vw;
+    justify-content: space-evenly;
+    display: inline-flex;
+    text-decoration: none;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2vw;
+    border-radius: 10px;
+    aspect-ratio: 3.5/1;
+    width: 28%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    transition: scale 0.3s ease-in-out;
+}
+#categoriesSection .category:hover{
+    scale: 1.1;
+}
+.category.span{
+    color: transparent;
+}
+.category.react{
+    background-image: linear-gradient(to right, #ffffff, #eaf0ff, #c3e6ff, #89deff, #00d8ff);
+    border: 2px solid #00d8ff;
+}
+.category.javascript{
+    background-image: linear-gradient(to right, #ffffff, #ffeaff, #ffd0d9, #ffc981, #f7df1e);
+    border: 2px solid #f7df1e;
+}
+.category.html{
+    background-image: linear-gradient(to right, #ffffff, #f2d5f4, #fca4cc, #ff7184, #e44d26);
+    border: 2px solid #e44d26;
+}
+.category.css{
+    background-image: linear-gradient(to right, #ffffff, #d6d0fa, #a9a2f4, #7776ed, #264de4);
+    border: 2px solid #264de4;
+}
+.category.php{
+    background-image: linear-gradient(to right, #ffffff, #dddbea, #bab8d5, #9797c1, #7377ad);
+    border: 2px solid #7377ad;
+}
+.category.node{
+    background-image: linear-gradient(to right, #ffffff, #d5e6f7, #95d4e0, #68bfab, #70a462);
+    border: 2px solid #70a462;
 }
 
 #newsLetterHighlighter{
