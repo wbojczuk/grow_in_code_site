@@ -107,3 +107,66 @@
 .blog-card-2 .content .desc{
     font-weight: 100;
 }
+
+#latestPostSection h1.title{
+    text-align: center;
+    font-weight: 100;
+    font-size: 4vw;
+    margin: 8vh 0 2.5vh 0;
+}
+
+#latestBlogCard{
+    width: 50%;
+    aspect-ratio: 3/1;
+    background-color: #000000;
+    border-radius: 20px;
+    position: relative;
+    color: white;
+    text-decoration: none;
+    transition: box-shadow 0.3s ease-in-out;
+}
+#latestBlogCard:hover{
+    box-shadow: 0 0 10px #22AAA2;
+}
+#latestBlogCard::after{
+    position: absolute;
+    display: inline-flex;
+    content: "Read More";
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    height: 100%;
+    top:0;
+    right:0;
+    z-index: 999;
+    background-color: #1b8881;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    color: black;
+    font-size: 2vw;
+}
+#latestBlogCard:hover::after{
+    text-decoration: underline;
+}
+
+#latestBlogCard .content{
+    display: inline-block;
+    width: 70%;
+    margin-left: 5%;
+}
+#latestBlogCard .content .title{
+    font-weight: 300;
+    font-size: 2.2vw;
+}
+
+#latestBlogCard .content .date{
+    margin: 1% 0 2% 0;
+    font-weight: 200;
+    font-style: italic;
+    font-size: 1vw;
+}
+
+#latestBlogCard .content .desc{
+    font-size: 1.2vw;
+    font-weight: 200;
+}

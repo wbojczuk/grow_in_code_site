@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200&family=Inspiration&family=Lobster&display=swap');
 *{
     margin:0;
     padding: 0;
@@ -311,6 +312,7 @@ margin: 5vh 25% 10vh 25%;
 }
 #categoriesSection .category{
     margin: 1vw;
+    position: relative;
     justify-content: space-evenly;
     display: inline-flex;
     text-decoration: none;
@@ -321,6 +323,7 @@ margin: 5vh 25% 10vh 25%;
     border-radius: 10px;
     aspect-ratio: 3.5/1;
     width: 28%;
+    font-weight: 100;
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
@@ -329,9 +332,7 @@ margin: 5vh 25% 10vh 25%;
 #categoriesSection .category:hover{
     scale: 1.1;
 }
-.category.span{
-    color: transparent;
-}
+
 .category.react{
     background-image: linear-gradient(to right, #ffffff, #eaf0ff, #c3e6ff, #89deff, #00d8ff);
     border: 2px solid #00d8ff;

@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BlogCard2 from "../components/BlogCard2";
+import LatestBlog from "../components/LatestBlog";
 
 export default function Blog(props){
     
     React.useEffect(()=>{
+        window.scrollTo(0,0);
         props.setCheckLinks(["close"])
     }, []);
 
@@ -24,6 +26,13 @@ export default function Blog(props){
                     <BlogCard2 title="Why using Vite saved my life and how it will save yours" desc="I am serious, Vite had saved my life as a website developer. Find out how it saved mine and how it’ll save yours" id={1234567} />
                     <BlogCard2 title="Why using Vite saved my life and how it will save yours" desc="I am serious, Vite had saved my life as a website developer. Find out how it saved mine and how it’ll save yours" id={1234567} />
                     <BlogCard2 title="Why using Vite saved my life and how it will save yours" desc="I am serious, Vite had saved my life as a website developer. Find out how it saved mine and how it’ll save yours" id={1234567} />
+                </div>
+            </section>
+            <section id="latestPostSection">
+                <h1 className="title">Latest Post</h1>
+                
+                <div className="center">
+                    <LatestBlog title="Why using Vite saved my life and how it will save yours" desc="I am serious, Vite has saved my life as a website developer. Find out how it saved mine and how it’ll save yours" id={1234567} />
                 </div>
             </section>
         </>

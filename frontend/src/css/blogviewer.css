@@ -1,0 +1,16 @@
+#blogViewerContainer{
+    margin-top: 20vh;
+    display: inline-block;
+    width: 50%;
+    margin-left: 20%;
+    font-family: "IBM Plex Sans";
+    background-color: #1F242D;
+    font-weight: 300;
+}
+
+#blogViewerContainer .date{
+    color: #22AAA2;
+}
+#blogViewerContainer .author{
+    color: #22AAA2;
+}
