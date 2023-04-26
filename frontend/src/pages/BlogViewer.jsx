@@ -12,6 +12,7 @@ export default function BlogViewer(props){
         props.setCheckLinks(["close"])
 
         const currentID = (props.id) ? props.id : (jsdev.GETValues()).id;
+        // Gets data From the Blog API
         getData();
         async function getData(){
             const fetchContentData = await fetch(`${NODESERVER}/api/blogcontent/${currentID}`);

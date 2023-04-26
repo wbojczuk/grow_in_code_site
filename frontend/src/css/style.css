@@ -390,3 +390,194 @@ margin: 5vh 25% 10vh 25%;
     font-size: 1.3vw;
     line-height: normal;
 }
+@media only screen and (max-width: 750px) {
+    #blueGlow1{
+        width: 20vw;
+        height: 20vw;
+        top: 20vh;
+        left: 60vw;
+    }
+    #blueGlow2{
+        width: 11vh;
+        height: 11vh;
+        top: 110vh;
+        left: 50vw;
+    }
+    #blueGlow3{
+        width: 40vw;
+        height: 40vw;
+        top: 150vh;
+        left:20vw;
+    }
+    #sideBar{
+        margin-top: 4vw;
+        width: 4px;
+    }
+    #mainSection{
+        height: 70vh;
+        width: 100%;
+        background-size: 80%;
+        background-position: 80% 70%;
+        margin-top: 4vw;
+    }
+    
+    #aboutMe{
+        font-size: 2vh;
+        left: 50vw;
+        padding: 0.5vh 1.5vh;
+    }
+    
+    #aboutUs{
+        position: absolute;
+        padding: 2vh 10%;
+        height: auto;
+        top: 35%;
+        width: 80%;
+        margin-left: 0%;
+        background-color: rgba(0,0,0,0.4);
+    }
+    #aboutUs h2{
+    letter-spacing: 0.5em;
+    font-size: 3vh;
+    font-weight: 300;
+    }
+    #aboutUs div{
+        font-size: 2vh;
+        font-weight: 200;
+    }
+    #aboutUs a{
+        padding: 0.5vh 0;
+        width: 80%;
+        margin-top: 5%;
+        font-size: 2vh;
+
+    }
+    #featuredBlogsContainer, #latestBlogsContainer, #improveBlogsContainer{
+        padding: 2vh 0;
+        flex-wrap: wrap;
+    }
+    #featuredBlogsTitle, #latestBlogsTitle, #improveBlogsTitle{
+        padding-left: 0;
+        font-size: 5.5vh;
+        text-align: center;
+        display: block;
+    }
+    /* Blog Card */
+    .blog-card{
+        width: 80%;
+        margin: 1vh;
+        border-radius: 10px;
+        aspect-ratio: 1.5/1;
+        overflow: hidden;
+    }
+    .blog-card::after{
+        padding: 0.5vh 0;
+        border-bottom-left-radius: 10px;
+        border-top-right-radius: 10px;
+        font-size: 2vh;
+    }
+    .blog-card:hover::after{
+        text-decoration: underline;
+    }
+    
+    .blog-card .title{
+        display: inline-block;
+        font-weight:100;
+        font-size: 2.6vh;
+        margin-top: 20%;
+        width: 90%;
+        font-weight: 400;
+        margin-left: 5%;
+    }
+    .blog-card .desc{
+        font-size: 1.8vh;
+        margin-top: 1%;
+        width: 90%;
+        margin-left: 5%;
+    }
+
+     /* CATEGORIES */
+     #categoriesSection .title{
+        font-size: 4vh;
+        text-align: center;
+        margin-top: 6vh;
+    }
+    #categoryWrapper{
+    display: inline-flex;
+    width: 90%;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 2.5vh 5% 10vh 5%;
+    }
+    #categoriesSection .category{
+        margin: 1vh;
+        font-size: 2vh;
+        border-radius: 8px;
+        width: 40%;
+    }
+    
+    .category.react{
+        background-image: linear-gradient(to right, #ffffff, #eaf0ff, #c3e6ff, #89deff, #00d8ff);
+        border: 2px solid #00d8ff;
+    }
+    .category.javascript{
+        background-image: linear-gradient(to right, #ffffff, #ffeaff, #ffd0d9, #ffc981, #f7df1e);
+        border: 2px solid #f7df1e;
+    }
+    .category.html{
+        background-image: linear-gradient(to right, #ffffff, #f2d5f4, #fca4cc, #ff7184, #e44d26);
+        border: 2px solid #e44d26;
+    }
+    .category.css{
+        background-image: linear-gradient(to right, #ffffff, #d6d0fa, #a9a2f4, #7776ed, #264de4);
+        border: 2px solid #264de4;
+    }
+    .category.php{
+        background-image: linear-gradient(to right, #ffffff, #dddbea, #bab8d5, #9797c1, #7377ad);
+        border: 2px solid #7377ad;
+    }
+    .category.node{
+        background-image: linear-gradient(to right, #ffffff, #d5e6f7, #95d4e0, #68bfab, #70a462);
+        border: 2px solid #70a462;
+    }
+
+
+    
+    #newsletterSection{
+        padding: 5vh 0;
+    }
+    #embeddedNewsletterWrapper{
+        width: 90%;
+        height: 30vh;
+    }
+    #embeddedFormDesc{
+        font-size: 1.5vh;
+        line-height: normal;
+    }
+
+#improveBlogsTitle, #improveBlogsContainer{
+    margin-top: 2vh;
+}
+    
+    /* FOOTER */
+    footer{
+        height: 40vh;
+        margin-top: 10vh;
+    }
+    
+    footer .socials, footer .contact{
+        margin-top: 5vh;
+        width: 45%;
+    }
+    footer .socials .title, footer .contact .title{
+        font-size: 3vh;
+    }
+    
+    .contact-items{
+        margin-top: 4vh;
+    }
+    .contact-items a{
+        font-size: 1.5vh;
+    }
+    
+}

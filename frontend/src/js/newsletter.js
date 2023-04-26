@@ -601,7 +601,7 @@ const newsLetterHTML = `
                       <div style="width: 100%;" class="horizontal-fields">
                         <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
                           <!-- input -->
-                      <input type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Enter your email here" autocomplete="email">
+                      <input type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Enter your email here" required autocomplete="email">
                       <!-- /input -->
                         </div>
                       </div>

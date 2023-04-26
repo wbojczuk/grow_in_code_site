@@ -1,8 +1,8 @@
 #blogViewerContainer{
     margin-top: 20vh;
     display: inline-block;
-    width: 50%;
-    margin-left: 20%;
+    width: 60%;
+    margin-left: 10%;
     font-family: "IBM Plex Sans";
     background-color: #1F242D;
     font-weight: 300;
@@ -10,7 +10,34 @@
 
 #blogViewerContainer .date{
     color: #22AAA2;
+    font-size: 1.5vw;
+    margin-top: 1vw;
+    font-style: italic;
 }
 #blogViewerContainer .author{
     color: #22AAA2;
+    margin: 1vw 0;
+    font-size: 1.5vw;
+}
+#blogViewerContainer .title{
+    font-size: 4.5vw;
+    font-family: "Roboto";
+    font-weight: 500;
+}
+@media only screen and (max-width: 750px) {
+    #blogViewerContainer{
+        width: 75%;
+        margin-left: 5%;
+    }
+    #blogViewerContainer .date{
+        font-size: 1.5vh;
+        margin-top: 1vh;
+    }
+    #blogViewerContainer .author{
+        margin: 1vh 0;
+        font-size: 1.5vh;
+    }
+    #blogViewerContainer .title{
+        font-size: 4.5vh;
+    }
 }

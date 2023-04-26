@@ -80,11 +80,13 @@
 .blog-card-2{
     display: inline-flex;
     width: 40%;
-    aspect-ratio: 3/1;
+    aspect-ratio: 2.5/1;
     margin: 2.5%;
     text-decoration: none;
     justify-content: space-between;
     border: 2px solid transparent;
+    overflow: hidden;
+    
 }
 .blog-card-2:hover{
     border: 2px solid #22AAA2;
@@ -102,10 +104,11 @@
     text-decoration: none;
 }
 .blog-card-2 .content .title{
-
+    font-size: 1.2vw;
 }
 .blog-card-2 .content .desc{
     font-weight: 100;
+    font-size: 1.1vw;
 }
 
 #latestPostSection h1.title{
@@ -169,4 +172,77 @@
 #latestBlogCard .content .desc{
     font-size: 1.2vw;
     font-weight: 200;
+}
+@media only screen and (max-width: 750px) {
+    #mainBlogHero{
+        height: 35vh;
+        margin-top: 5vh;
+        background-image: url("/img/tech_hero.png");
+    }
+    #mainBlogHero .title{
+        font-size: 5vh;
+        top: 10%;
+    }
+    #mainBlogHero .desc{
+        font-size: 1.8vh;
+        top: 15%;
+    }
+    #mainBlogHero a{
+        top: 25%;
+        width: 40%;
+        left:30%;
+        padding: 0.3vh 0;
+        font-size: 2vh;
+    }
+
+    #featuredPostsSection .title span{
+        font-size: 5vh;
+    }
+    
+    #featuredPostsWrapper{
+        width: 90%;
+        margin-left: 5%;
+    }
+    
+    .blog-card-2{
+        width: 90%;
+        aspect-ratio: 3/1;
+        margin: 2.5% 5%;
+    }
+    .blog-card-2 .content .title{
+        font-size: 1.6vh;
+    }
+    .blog-card-2 .content .desc{
+        font-weight: 100;
+        font-size: 1.5vh;
+    }
+    
+    #latestPostSection h1.title{
+        font-size: 5vh;
+    }
+    
+    #latestBlogCard{
+        width: 90%;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    #latestBlogCard::after{
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
+        font-size: 2vh;
+        text-align: center;
+    }
+
+    #latestBlogCard .content .title{
+        font-size: 2vh;
+    }
+    
+    #latestBlogCard .content .date{
+        margin: 1% 0 2% 0;
+        font-size: 1.2vh;
+    }
+    
+    #latestBlogCard .content .desc{
+        font-size: 1.4vh;
+    }
 }
