@@ -1,9 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const data = {};
-const fs = require("fs");
 const path = require("path");
-const fspromise = require("fs/promises");
 const { db } = require(path.join(__dirname,"db.js"));
 
 const blogAPISettings = {
@@ -89,16 +86,9 @@ router.get("/latestblogs/:amount", async (req,res)=>{
     }
 });
 
-// NEEDS TO DELETE OLD ONES MANUALLY
 router.get("/blogcategories", async (req,res)=>{
-    // try{
-    //     const categories = await db.blogDatabase.collection("blog")
-    //     .findOne({_id: "644b070194564f109c9c9248"}, {projection: {"allTags": 1, _id: 0}});
-    //     res.json(categories.allTags)
-    // }catch(err){
-    //     res.sendStatus(500);
-    //     console.error(err);
-    // }
+
+    try{
 
     const categories = await db.blogDatabase.collection("blog").aggregate([
         {
@@ -115,6 +105,10 @@ router.get("/blogcategories", async (req,res)=>{
       ]).toArray()
 
       res.json(categories[0].categories);
+    }catch(err){
+        console.error(err);
+        res.sendStatus(500)
+    }
 })
 
 // DELETE BLOG BY ID
