@@ -145,17 +145,19 @@
     async function getCurrentBlogs(){
         const fetchDraftData = await fetch("/api/drafts");
         const draftData = await fetchDraftData.json();
-        const fetchBlogData = await fetch("/api/blogs");
+        const fetchBlogData = await fetch("/api/blogmetadata");
+        
         let blogData = await fetchBlogData.json();
+        
         blogData = blogData.reverse();
         blogData = [...blogData, ...draftData];
         const blogDataLength = blogData.length;
         for(let i = blogDataLength - 1; i >=0; --i){
-            const blog = blogData[i];
+            const blog = blogData[i].metadata;
             const title = blog.title;
             const description = blog.description;
-            const id = blog.id;
-            const isDraft = (blog.isdraft) ? '<div class="center"><div class="blog-tag">DRAFT</div></div>' : "";
+            const id = blogData[i]._id;
+            const isDraft = (blog.isDraft) ? '<div class="center"><div class="blog-tag">DRAFT</div></div>' : "";
 
             let tagElems = "";
             blog.tags.forEach((tag)=>{
