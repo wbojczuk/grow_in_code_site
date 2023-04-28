@@ -15,17 +15,17 @@ export default function BlogViewer(props){
         // Gets data From the Blog API
         getData();
         async function getData(){
-            const fetchContentData = await fetch(`${NODESERVER}/api/blogcontent/${currentID}`);
-            const contentData = await fetchContentData.text();
-            const fetchBlogData = await fetch(`${NODESERVER}/api/blogs/id/${currentID}`);
-            const blogData = await fetchBlogData.json();
+            const fetchBlogData = await fetch(`${NODESERVER}/api/blogbyid/${currentID}`);
+            const jsonBlogData = await fetchBlogData.json();
+            const contentData = jsonBlogData.content;
+            const blogData =  jsonBlogData.metadata;
 
             // Create Date String
             const monthNames = ["January", "February", "March", "April", "May", "June",
                                 "July", "August", "September", "October", "November", "December"
                                 ];
             
-            const currentDate = new Date(parseInt(blogData.id));
+            const currentDate = new Date(parseInt(jsonBlogData._id));
 
             if(!props.notitle){
                 setTitle(blogData.title);

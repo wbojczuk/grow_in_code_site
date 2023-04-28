@@ -1,5 +1,5 @@
 const { MongoClient } = require("mongodb");
-const client = new MongoClient("URI HERE");
+const client = new MongoClient("");
 
 const db = {
     connect: async ()=>{client.connect(); return true},

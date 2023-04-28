@@ -8,6 +8,25 @@ const blogAPISettings = {
     blogsAndDraftsReturnLimit: 50
 }
 
+async function updateTags(){
+    const categories = await db.blogDatabase.collection("blog").aggregate([
+        {
+          $unwind: "$metadata.tags"
+        },
+        {
+          $group: {
+            _id: "null",
+            categories: {
+                "$addToSet": "$metadata.tags"
+            }
+          }
+        }
+      ]).toArray()
+      
+    await db.blogDatabase.collection("blog").updateOne({_id: "644bce6a18f200dd5d627da1"}, {$set: {allTags: categories[0].categories}}, {upsert: true});
+    return true
+}
+
 router.route("/blogmetadata")
 .get(async (req, res)=>{
     try{
@@ -17,6 +36,7 @@ router.route("/blogmetadata")
         res.json(result);
     }catch(err){
         console.error(err);
+        res.sendStatus(500);
     }
     
 });
@@ -43,7 +63,14 @@ router.route("/blogs")
                     content: `${sentData.content}`
                 };
                 
-                await db.blogDatabase.collection("blog").updateOne({_id: sentData.id}, {$set: newBlog}, {upsert: true})
+                await db.blogDatabase.collection("blog").updateOne({_id: sentData.id}, {$set: newBlog}, {upsert: true});
+
+                // UPDATE ALL TAGS
+                if(!sentData.isdraft){
+                    await updateTags();
+                }
+                
+
                 res.status = 200;
                 res.send("Completed")
         
@@ -66,11 +93,6 @@ router.get("/blogbyid/:blogid", async (req,res)=>{
     }
 })
 
-// GET BLOG CONTENT BY ID
-router.get("/blogcontent/:blogid", (req,res)=>{
-    res.sendFile(path.join(__dirname, `blogs/${req.params.blogid}.txt`))
-});
-
 // GET LATEST 4 BLOGS
 router.get("/latestblogs/:amount", async (req,res)=>{
     try{
@@ -89,22 +111,8 @@ router.get("/latestblogs/:amount", async (req,res)=>{
 router.get("/blogcategories", async (req,res)=>{
 
     try{
-
-    const categories = await db.blogDatabase.collection("blog").aggregate([
-        {
-          $unwind: "$metadata.tags"
-        },
-        {
-          $group: {
-            _id: "null",
-            categories: {
-                "$addToSet": "$metadata.tags"
-            }
-          }
-        }
-      ]).toArray()
-
-      res.json(categories[0].categories);
+        const result = await db.blogDatabase.collection("blog").findOne({_id: "644bce6a18f200dd5d627da1"}, {projection: {_id: 0, allTags: 1}});
+        res.json(result.allTags);
     }catch(err){
         console.error(err);
         res.sendStatus(500)
@@ -115,7 +123,8 @@ router.get("/blogcategories", async (req,res)=>{
 router.delete("/deleteblog/:blogid", async (req, res)=>{
     if(req.user){
         try{
-            db.blogDatabase.collection("blog").deleteOne({_id: req.params.blogid});
+            await db.blogDatabase.collection("blog").deleteOne({_id: req.params.blogid});
+            await updateTags();
             res.sendStatus(200);
         }catch(err){
             res.sendStatus(500);
