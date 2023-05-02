@@ -7,6 +7,13 @@ import './css/blogviewer.css';
 
 window.NODESERVER = "http://localhost:3000";
 
+window.FEATUREDBLOGS = ["1683046326716"].toString();
+window.IMPROVEYOURSELF = ["1683046326716"].toString();
+// BOTH 3
+
+window.POPULARPOSTS = ["1683046326716"].toString();
+// 4 OR SO
+
 ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
 )

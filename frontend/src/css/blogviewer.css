@@ -1,11 +1,12 @@
 #blogViewerContainer{
     margin-top: 20vh;
     display: inline-block;
-    width: 60%;
-    margin-left: 10%;
+    width: 45%;
+    margin-left: 20%;
     font-family: "IBM Plex Sans";
     background-color: #1F242D;
     font-weight: 300;
+    word-wrap: break-word;
 }
 
 #blogViewerContainer .date{
@@ -19,14 +20,22 @@
     margin: 1vw 0;
     font-size: 1.5vw;
 }
+
 #blogViewerContainer .title{
     font-size: 4.5vw;
     font-family: "Roboto";
     font-weight: 500;
 }
+
+#blogViewerContainer .content a{
+   color: #31f0e3;
+}
+#blogViewerContainer .content{
+    color: rgb(228, 228, 228);
+ }
 @media only screen and (max-width: 750px) {
     #blogViewerContainer{
-        width: 75%;
+        width: 85%;
         margin-left: 5%;
     }
     #blogViewerContainer .date{
@@ -39,5 +48,8 @@
     }
     #blogViewerContainer .title{
         font-size: 4.5vh;
+    }
+    #blogViewerContainer .content{
+        line-height: 2em;
     }
 }

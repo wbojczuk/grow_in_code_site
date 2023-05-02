@@ -652,24 +652,30 @@ const newsLetterHTML = `
       if(document.getElementById("embeddedNewsletterWrapper")){
           document.getElementById("embeddedNewsletterWrapper").innerHTML = newsLetterHTML;
           document.querySelector(".ml-block-form").addEventListener("submit", ()=>{
-            window.localStorage.setItem("embeddedNewsletterStatus", "true")
+            window.localStorage.setItem("embeddedNewsletterStatus", "true");
+
           })
           // ADD FOCUS INTERSECTION TRIGGER
           const newsLetterHighlighter = document.getElementById("newsLetterHighlighter");
           if(!window.localStorage.getItem("embeddedNewsletterStatus") || window.localStorage.getItem("embeddedNewsletterStatus") != "true"){
+            if(!window.localStorage.getItem("embeddedNewsletterAttempt") || ((parseInt(window.localStorage.getItem("embeddedNewsletterAttempt")) + 600000) <= new Date().getTime() )){
+            
             jsdev.intersectionTrigger("#embeddedNewsletterWrapper", {
             thresholdIn: 1,
             thresholdOut: 0.6,
             repeat: false,
             onTrigger: handleTrigger,
             onExit: handleExit
-          })}
+          })
+        }
+        }
           newsLetterHighlighter.addEventListener("click", handleExit)
           function handleTrigger(){
             newsLetterHighlighter.style.display = "block";
           }
           function handleExit(){
             newsLetterHighlighter.style.display = "none";
+            window.localStorage.setItem("embeddedNewsletterAttempt", new Date().getTime());
           }
       }
   }

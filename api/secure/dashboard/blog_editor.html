@@ -201,6 +201,7 @@
     <div id="tagsContainer">
 
     </div>
+    <br>
 <div id="blogEditorContainer">
     <textarea name="blogEditor" id="blogEditor" cols="30" rows="10"></textarea>
 </div>
@@ -229,8 +230,20 @@
 
         tinymce.init({
     selector: "#blogEditor",
-    plugins: 'image lists link code',
-    toolbar: 'undo redo | styleselect | bold italic fontselect | alignleft aligncenter alignright alignjustify | numlist bullist link code | outdent indent| image',
+    plugins: 'image lists link code codesample',
+            toolbar: 'undo redo | styleselect fontselect | bold italic codesample | alignleft aligncenter alignright alignjustify | numlist bullist link code | outdent indent| image',
+            codesample_languages: [
+                { text: 'HTML/XML', value: 'markup' },
+                { text: 'JavaScript', value: 'javascript' },
+                { text: 'CSS', value: 'css' },
+                { text: 'PHP', value: 'php' },
+                { text: 'Ruby', value: 'ruby' },
+                { text: 'Python', value: 'python' },
+                { text: 'Java', value: 'java' },
+                { text: 'C', value: 'c' },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' }
+  ],
     image_title: true,
     /* enable automatic uploads of images represented by blob or data URIs*/
     automatic_uploads: true,

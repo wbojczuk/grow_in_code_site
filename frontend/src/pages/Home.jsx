@@ -5,11 +5,53 @@ import { Link } from "react-router-dom";
 
 export default function Home(props){
 
+    const [latestBlogs, setLatestBlogs] = React.useState([]);
+    const latestBlogsComponents = latestBlogs.map((blog)=>{
+        return(
+            <BlogCard key={blog._id} id={blog._id} title={blog.metadata.title} description={blog.metadata.description}/>
+        )
+    });
+
+    const [featuredBlogs, setFeaturedBlogs] = React.useState([]);
+    const featuredBlogsComponents = featuredBlogs.map((blog)=>{
+        return(
+            <BlogCard key={blog._id} id={blog._id} title={blog.metadata.title} description={blog.metadata.description}/>
+        )
+    });
+    const [improveYourself, setImproveYourself] = React.useState([]);
+    const improveYourselfComponents = improveYourself.map((blog)=>{
+        return(
+            <BlogCard key={blog._id} id={blog._id} title={blog.metadata.title} description={blog.metadata.description}/>
+        )
+    });
+
     React.useEffect(()=>{
         window.scrollTo(0,0);
         embedNewsletter();
         props.setCheckLinks(["close"]);
-    }, [])
+
+        // GET LATEST BLOGS
+        getLatestBlogs();
+        async function getLatestBlogs(){
+            const fetchData = await fetch(`${NODESERVER}/api/latestblogs/3`);
+            const blogData = await fetchData.json();
+            setLatestBlogs(blogData);
+        }
+        getFeaturedBlogs();
+        async function getFeaturedBlogs(){
+            const fetchData = await fetch(`${NODESERVER}/api/blogsbyids/${FEATUREDBLOGS}`);
+            const blogData = await fetchData.json();
+            setFeaturedBlogs(blogData);
+        }
+        // getImproveYourself();
+        // async function getImproveYourself(){
+        //     const fetchData = await fetch(`${NODESERVER}/api/blogsbyids/${IMPROVEYOURSELF}`);
+        //     const blogData = await fetchData.json();
+        //     setImproveYourself(blogData);
+        // }
+    }, []);
+
+    
 
     return(
         <>
@@ -34,9 +76,7 @@ export default function Home(props){
                 <section id="featuredBlogsSection">
                     <h1 id="featuredBlogsTitle"><span>Featured Posts</span></h1>
                     <div id="featuredBlogsContainer">
-                        <BlogCard id="123456789" title="Why Use Node Over PHP?" description="There are many people who like PHP and there are many people who like Node, but..." />
-                        <BlogCard id="123456789" title="Why Use Node Over PHP?" description="There are many people who like PHP and there are many people who like Node, but..." />
-                        <BlogCard id="123456789" title="Why Use Node Over PHP?" description="There are many people who like PHP and there are many people who like Node, but..." />
+                        {featuredBlogsComponents}
                     </div>
                 </section>
 
@@ -60,20 +100,16 @@ export default function Home(props){
                 <section id="latestBlogsSection">
                     <h1 id="latestBlogsTitle">Latest Posts</h1>
                     <div id="latestBlogsContainer">
-                        <BlogCard id="123456789" title="Why Use Node Over PHP?" description="There are many people who like PHP and there are many people who like Node, but..." />
-                        <BlogCard id="123456789" title="Why Use Node Over PHP?" description="There are many people who like PHP and there are many people who like Node, but..." />
-                        <BlogCard id="123456789" title="Why Use Node Over PHP?" description="There are many people who like PHP and there are many people who like Node, but..." />
+                        {latestBlogsComponents}
                     </div>
                 </section>
 
-                <section id="improveBlogsSection">
+                {/* <section id="improveBlogsSection">
                     <h1 id="improveBlogsTitle">Improve Yourself</h1>
                     <div id="improveBlogsContainer">
-                        <BlogCard id="123456789" title="Why Use Node Over PHP?" description="There are many people who like PHP and there are many people who like Node, but..." />
-                        <BlogCard id="123456789" title="Why Use Node Over PHP?" description="There are many people who like PHP and there are many people who like Node, but..." />
-                        <BlogCard id="123456789" title="Why Use Node Over PHP?" description="There are many people who like PHP and there are many people who like Node, but..." />
+                        {improveYourselfComponents}
                     </div>
-                </section>
+                </section> */}
             </div>
         </>
     )

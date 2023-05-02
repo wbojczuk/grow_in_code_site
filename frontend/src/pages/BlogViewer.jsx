@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import LoaderAnim from "../components/LoaderAnim";
 export default function BlogViewer(props){
 
+    const [loaderActive, setLoaderActive] = React.useState(true);
     const contentRef = React.useRef();
     const [title, setTitle] = React.useState("");
     const [date, setDate] = React.useState("");
@@ -24,26 +26,31 @@ export default function BlogViewer(props){
             const monthNames = ["January", "February", "March", "April", "May", "June",
                                 "July", "August", "September", "October", "November", "December"
                                 ];
-            
             const currentDate = new Date(parseInt(jsonBlogData._id));
 
+            setLoaderActive(false);
             if(!props.notitle){
                 setTitle(blogData.title);
             }
             setDate(`- ${monthNames[currentDate.getMonth()]} ${currentDate.getDate()}, ${currentDate.getFullYear()}`);
-            setAuthor("William Bojczuk");
+            setAuthor("By William Bojczuk");
             contentRef.current.innerHTML = contentData;
+            Prism.highlightAll();
         }
 
     }, [])
 
 
     return(
+        <>
+        <div id="pageID" data-id="blog"></div>
         <div id="blogViewerContainer">
+            {loaderActive && <LoaderAnim />}
             <div className="title">{title}</div>
             <div className="date">{date}</div>
-            <div className="author">By {author}</div>
+            <div className="author">{author}</div>
             <div className="content" ref={contentRef}></div>
         </div>
+        </>
     )
 }

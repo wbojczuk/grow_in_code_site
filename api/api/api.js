@@ -41,9 +41,20 @@ router.route("/blogmetadata")
     
 });
 
+router.get("/blogsbyids/:ids", async (req, res)=>{
+    try{
+        const ids = req.params.ids.split(",");
+        const result = await db.blogDatabase.collection("blog").find({_id: {$in: ids}}, {projection: {metadata: 1}})
+        .sort({_id: 1}).toArray();
+        res.json(result);
+    }catch(err){
+        console.error(err);
+        res.sendStatus(500);
+    }
+})
+
 router.route("/blogs")
 .post(async (req, res)=>{
-    
     if(req.user){
     
         const sentData = req.body;
@@ -83,7 +94,7 @@ router.route("/blogs")
     }
 });
 
-// GET BLOG DATA BY ID
+// GET BLOG metadata and content BY ID
 router.get("/blogbyid/:blogid", async (req,res)=>{
     const result = await db.blogDatabase.collection("blog").findOne({_id: req.params.blogid});
     if(result){
@@ -98,7 +109,7 @@ router.get("/latestblogs/:amount", async (req,res)=>{
     try{
         const result = await db.blogDatabase.collection("blog")
         .find({"metadata.isDraft": false}, {projection: {metadata: 1}})
-        .sort({_id: 1})
+        .sort({_id: -1})
         .limit(parseInt(req.params.amount)).toArray();
 
         res.json(result);
@@ -107,6 +118,18 @@ router.get("/latestblogs/:amount", async (req,res)=>{
         console.error(err);
     }
 });
+
+router.get("/blogsbycategory/:category", async (req,res)=>{
+    try{
+        const result = await db.blogDatabase.collection("blog").find({"metadata.tags": (req.params.category).replaceAll("_", " ")}, {projection: {metadata: 1}})
+        .sort({_id: 1})
+        .limit(parseInt(req.params.amount)).toArray();
+        res.json(result);
+    }catch(err){
+        console.error(err);
+        res.sendStatus(500)
+    }
+})
 
 router.get("/blogcategories", async (req,res)=>{
 
@@ -151,7 +174,7 @@ router.get("/blogsanddrafts", (req, res)=>{
     }
 })
 
-// START DRAFTS API
+// ******************* START DRAFTS API
 
 router.get("/drafts",async (req, res)=>{
         try{const result = await (db.blogDatabase.collection("blog")
