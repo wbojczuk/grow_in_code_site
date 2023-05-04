@@ -69,7 +69,7 @@ export default function Home(props){
                     <aside id="aboutUs">
                         <h2>Coding</h2>
                         <div>Hi, my name is William Bojczuk. I am a Web Developer and the creator/maintainer of <em>Grow In Code</em>. Join me on all my coding adventures through what I write, Enjoy!</div>
-                        <Link to="/">Best of the Blog</Link>
+                        <Link to="/blog">Best of the Blog</Link>
                     </aside>
                 </section>
 

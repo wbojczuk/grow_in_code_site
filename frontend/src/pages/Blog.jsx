@@ -13,7 +13,7 @@ export default function Blog(props){
     });
     
     React.useEffect(()=>{
-        window.scrollTo(0,0);
+        // window.scrollTo(0,0);
         props.setCheckLinks(["close"]);
 
         getFeaturedPosts();
@@ -31,7 +31,7 @@ export default function Blog(props){
                 <div className="shader"></div>
                 <h1 className="title">New to the blog? Welcome!</h1>
                 <h3 className="desc">Here’s a collection of great posts I’ve put together for newcomers</h3>
-                <Link to="/bestoftheblog">Best of the Blog</Link>
+                <Link to="/blog">Best of the Blog</Link>
             </section>
             <section id="featuredPostsSection">
                 <div className="center"><div className="title"><span>Popular Posts</span></div></div>

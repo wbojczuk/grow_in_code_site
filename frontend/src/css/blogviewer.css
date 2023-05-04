@@ -1,5 +1,5 @@
 #blogViewerContainer{
-    margin-top: 20vh;
+    margin-top: 15vh;
     display: inline-block;
     width: 45%;
     margin-left: 20%;
@@ -10,15 +10,19 @@
 }
 
 #blogViewerContainer .date{
-    color: #22AAA2;
-    font-size: 1.5vw;
+    color: var(--primary-color);
+    font-size: 1.2vw;
     margin-top: 1vw;
     font-style: italic;
 }
 #blogViewerContainer .author{
-    color: #22AAA2;
-    margin: 1vw 0;
-    font-size: 1.5vw;
+    color: var(--primary-color);
+    margin: 0.5vw 0 5vw 0;
+    font-size: 1.2vw;
+    display: inline-block;
+}
+#blogViewerContainer .author a{
+    color: var(--primary-color);
 }
 
 #blogViewerContainer .title{
@@ -29,21 +33,57 @@
 
 #blogViewerContainer .content a{
    color: #31f0e3;
+   
 }
 #blogViewerContainer .content{
     color: rgb(228, 228, 228);
+    font-weight: 400;
  }
+
+
+ /* TAGS */
+
+#tagsContainer{
+    width: 100%;
+    position: relative;
+    margin: 5vh 0;
+}
+#blogViewerContainer #tagsContainer .title{
+    font-family: "Atomic Age", cursive;
+    color: var(--primary-color);
+    font-size: 2vw;
+}
+#tagsContainer .separator{
+    background-color: var(--primary-color);
+    height: 2px;
+    width: 100%;
+}
+#tagsContainer .tags{
+
+}
+#tagsContainer .tags .tag{
+    display: inline-block;
+    background-color: var(--primary-color);
+    padding: 0.5vw 1.5vw;
+    margin: 0.5vw;
+    border-radius: 20px;
+    color: black;
+    cursor: pointer;
+    font-size: 0.9vw;
+}
+
 @media only screen and (max-width: 750px) {
     #blogViewerContainer{
-        width: 85%;
+        width: 90%;
         margin-left: 5%;
+        margin-top: 10vh;
     }
     #blogViewerContainer .date{
         font-size: 1.5vh;
         margin-top: 1vh;
     }
     #blogViewerContainer .author{
-        margin: 1vh 0;
+        margin: 0.5vh 0 5vh 0;
         font-size: 1.5vh;
     }
     #blogViewerContainer .title{
@@ -52,4 +92,29 @@
     #blogViewerContainer .content{
         line-height: 2em;
     }
+     /* TAGS */
+
+#tagsContainer{
+    width: 100%;
+    position: relative;
+    margin: 2.5vh 0;
+}
+#blogViewerContainer #tagsContainer .title{
+    font-family: "Atomic Age", cursive;
+    color: var(--primary-color);
+    font-size: 2.5vh;
+}
+#tagsContainer .separator{
+    background-color: var(--primary-color);
+    height: 2px;
+    width: 100%;
+}
+#tagsContainer .tags{
+
+}
+#tagsContainer .tags .tag{
+    padding: 1vw 3.5vw;
+    margin: 0.5vh;
+    font-size: 1.5vh;
+}
 }

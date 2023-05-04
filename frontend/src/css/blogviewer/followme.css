@@ -1,0 +1,53 @@
+#followMeEverywhere{
+    width: 100%;
+    border-top: 2px solid var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding: 1vw 0;
+}
+#blogViewerContainer .content #followMeEverywhere .title{
+    font-family: "Atomic Age", cursive;
+    font-size: 2.5vw;
+    text-align: center;
+}
+#followMeEverywhereIcons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5vw 0;
+}
+#followMeEverywhereIcons a{
+    display: inline-block;
+    width: 10%;
+    aspect-ratio: 1/1;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    margin: 0 1vw;
+}
+#followMeEverywhereIcons a.instagram{
+    background-image: url("/img/coloredsocials/instagram.svg");
+    background-size: 120%;
+}
+#followMeEverywhereIcons a.youtube{
+    background-image: url("/img/coloredsocials/youtube.svg");
+}
+#followMeEverywhereIcons a.twitter{
+    background-image: url("/img/coloredsocials/twitter.svg");
+}
+
+/* MOBILE STYLES */
+@media only screen and (max-width: 750px) {
+    #followMeEverywhere{
+        padding: 2vh 0;
+    }
+    #blogViewerContainer .content #followMeEverywhere .title{
+        font-size: 3vh;
+    }
+    #followMeEverywhereIcons{
+        margin: 0.5vh 0;
+    }
+    #followMeEverywhereIcons a{
+        width: 15%;
+        margin: 0 1vh;
+    }
+}

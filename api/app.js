@@ -31,13 +31,11 @@ app.use(express.urlencoded({extended: false}));
   
 app.use(passport.authenticate('session'));
 
-app.use("/login", require("./auth/login.js"));
+app.use("/login|/", require("./auth/login.js"));
 app.use("/dashboard", require("./secure/dashboard.js"))
 app.use("/api", require("./api/api.js"));
 
 // SERVING THE STATIC ADMIN PANEL
 app.use(express.static("secure"));
-
-
 
 app.listen(PORT);

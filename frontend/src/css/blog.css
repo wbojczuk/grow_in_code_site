@@ -121,8 +121,7 @@
 #latestBlogCard{
     width: 50%;
     aspect-ratio: 3/1;
-    background-color: #000000;
-    border-radius: 20px;
+    background-color: #1A1C1E;
     position: relative;
     color: white;
     text-decoration: none;
@@ -141,10 +140,8 @@
     height: 100%;
     top:0;
     right:0;
-    z-index: 999;
+    z-index: 800;
     background-color: #1b8881;
-    border-bottom-right-radius: 20px;
-    border-top-right-radius: 20px;
     color: black;
     font-size: 2vw;
 }
@@ -158,8 +155,8 @@
     margin-left: 5%;
 }
 #latestBlogCard .content .title{
-    font-weight: 300;
-    font-size: 2.2vw;
+    font-size: 2vw;
+    font-weight: 500;
 }
 
 #latestBlogCard .content .date{
@@ -223,26 +220,23 @@
     
     #latestBlogCard{
         width: 90%;
-        border-radius: 10px;
         overflow: hidden;
     }
     #latestBlogCard::after{
-        border-bottom-right-radius: 10px;
-        border-top-right-radius: 10px;
         font-size: 2vh;
         text-align: center;
     }
 
     #latestBlogCard .content .title{
-        font-size: 2vh;
+        font-size: 1.8vh;
     }
     
     #latestBlogCard .content .date{
         margin: 1% 0 2% 0;
-        font-size: 1.2vh;
+        font-size: 1.1vh;
     }
     
     #latestBlogCard .content .desc{
-        font-size: 1.4vh;
+        font-size: 1.2vh;
     }
 }

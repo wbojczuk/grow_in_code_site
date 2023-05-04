@@ -1,6 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
+import inblogcontent from "../js/inblogcontent";
+import "../css/blogviewer/followme.css";
+
+import Tags from "../components/blogviewer/Tags";
 import LoaderAnim from "../components/LoaderAnim";
+import SocialShare from "../components/blogviewer/SocialShare";
+
+
 export default function BlogViewer(props){
 
     const [loaderActive, setLoaderActive] = React.useState(true);
@@ -8,12 +16,16 @@ export default function BlogViewer(props){
     const [title, setTitle] = React.useState("");
     const [date, setDate] = React.useState("");
     const [author, setAuthor] = React.useState("");
+    const [tags, setTags] = React.useState([]);
+
+    const [description, setDescription] = React.useState("");
 
     React.useEffect(()=>{
         window.scrollTo(0,0);
         props.setCheckLinks(["close"])
 
         const currentID = (props.id) ? props.id : (jsdev.GETValues()).id;
+
         // Gets data From the Blog API
         getData();
         async function getData(){
@@ -33,8 +45,13 @@ export default function BlogViewer(props){
                 setTitle(blogData.title);
             }
             setDate(`- ${monthNames[currentDate.getMonth()]} ${currentDate.getDate()}, ${currentDate.getFullYear()}`);
-            setAuthor("By William Bojczuk");
+            setAuthor("William Bojczuk");
+            setTags(blogData.tags);
+            setDescription(blogData.description);
+
             contentRef.current.innerHTML = contentData;
+            inblogcontent();
+            
             Prism.highlightAll();
         }
 
@@ -44,12 +61,25 @@ export default function BlogViewer(props){
     return(
         <>
         <div id="pageID" data-id="blog"></div>
-        <div id="blogViewerContainer">
+        
+            <div id="blogViewerContainer">
+
             {loaderActive && <LoaderAnim />}
-            <div className="title">{title}</div>
-            <div className="date">{date}</div>
-            <div className="author">{author}</div>
+
+            {(!loaderActive) &&
+            <>
+                <div className="title">{title}</div>
+                <SocialShare title={title} description={description}/>
+
+                <div className="date">{date}</div>
+                
+                <div className="author">By: <Link to="/about">{author}</Link></div>
+            </>
+            }
+
             <div className="content" ref={contentRef}></div>
+
+            {(tags.length > 0) && <Tags tags={tags}/>}
         </div>
         </>
     )

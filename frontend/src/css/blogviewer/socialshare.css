@@ -1,0 +1,37 @@
+#socialShareContainer{
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    margin: 2vw 0;
+}
+.social-share-button{
+    margin: 0 1vw;
+    display: inline-block;
+    height: 3vw;
+    width: 8vw;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.social-share-button.facebook{
+    background-image: url("/img/shareicons/facebook-share-button.svg");
+}
+.social-share-button.linkedin{
+    background-image: url("/img/shareicons/linkedin-share-button.svg");
+}
+.social-share-button.twitter{
+    background-image: url("/img/shareicons/twitter-share-button.svg");
+}
+
+/* MOBILE STYLES */
+@media only screen and (max-width: 750px) {
+    #socialShareContainer{
+        margin: 2vh 0;
+    }
+    .social-share-button{
+        margin: 0 1vh;
+        height: 4vh;
+        width: 10vh;
+    } 
+}

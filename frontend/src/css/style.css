@@ -6,6 +6,9 @@
 #pageID{
     display: none;
 }
+:root{
+    --primary-color: #22AAA2;
+}
 
 body{
     background-color: #1F242D;
@@ -285,6 +288,10 @@ footer .socials .social-icons a{
     background-position: center;
     background-repeat: no-repeat;
 }
+.contact-items{
+    top: 15%;
+    position: relative;
+}
 footer .socials .social-icons a:hover, .contact-items a:hover{
     filter: drop-shadow(0 0 10px #22aaa190);
 }
@@ -475,14 +482,14 @@ margin: 5vh 25% 10vh 25%;
     .blog-card{
         width: 80%;
         margin: 1vh;
-        border-radius: 10px;
+        border-radius: 0;
         aspect-ratio: 1.5/1;
         overflow: hidden;
     }
     .blog-card::after{
         padding: 0.5vh 0;
-        border-bottom-left-radius: 10px;
-        border-top-right-radius: 10px;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 0;
         font-size: 2vh;
     }
     .blog-card:hover::after{
@@ -589,7 +596,7 @@ margin: 5vh 25% 10vh 25%;
     }
     
     .contact-items{
-        margin-top: 4vh;
+        margin-top: -0.5vh;
     }
     .contact-items a{
         font-size: 1.5vh;
