@@ -1,0 +1,108 @@
+#sideNav{
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 20%;
+    height: calc(100% - 5vw);
+    border-left: 2px solid var(--primary-color);
+    position: absolute;
+    right:5vw;
+    top:5vw;
+    font-family: "Atomic Age", cursive;
+}
+#sideNavAboutMe{
+    margin-top: 10vh;
+    width: 15vw;
+    height: 16vw;
+    display: inline-block;
+    background-color: var(--secondary-color);
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("/img/aboutme.jpg");
+}
+#sideNavAboutMe .title{
+    text-align: center;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    text-decoration: none;
+    position: absolute;
+    padding: 1vw 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 2vw;
+}
+#sideNavPopularPosts, #sideNavFeaturedPost, #sideNavResources{
+    margin-top: 6vw;
+    
+}
+#sideNavPopularPosts .title, #sideNavFeaturedPost .title, #sideNavResources .title{
+    font-size: 2.1vw;
+    margin-bottom: 1vw;
+    text-align: center;
+}
+#sideNavPopularPosts a{
+    font-family: "Kanit", sans-serif;
+    font-size: 1.2vw;
+    color: var(--primary-color);
+    margin: 0.5vw 0 0.5vw 5%;
+    display: block;
+}
+#sideNavFeaturedPost{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+}
+#sideNavFeaturedPost .post{
+    width: 10vw;
+    height: 12vw;
+    display: inline-block;
+    background-color: var(--secondary-color);
+    font-family: "Kanit", sans-serif;
+}
+#sideNavFeaturedPost .post{
+    color: white;
+    text-decoration: none;
+    padding: 0.5vw;
+}
+#sideNavFeaturedPost .post .title{
+    font-size: 1.2vw;
+    font-weight: 300;
+}
+#sideNavFeaturedPost .post .description{
+    margin-top: 15%;
+    font-size: 1vw;
+    font-weight: 100;
+}
+#sideNavResources{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#sideNavResources a{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72%;
+    aspect-ratio: 2/1;
+    background-color: var(--secondary-color);
+    font-family: "Kanit", sans-serif;
+    font-weight: 200;
+    color: white;
+    text-decoration: none;
+    padding: 0.5vw;
+    margin: 0.8vw 0;
+}
+#sideNavResources a:nth-of-type(even){
+    background-color: var(--primary-color);
+    color: black;
+}
+#sideNavResources a .title{
+    font-size: 1.8vw;
+}

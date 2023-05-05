@@ -27,7 +27,7 @@ export default function LatestBlog(props){
     }, []);
 
     return(
-        <Link to={`/blogviewer?id=${blogId}`} id="latestBlogCard">
+        <Link to={`/blogviewer/${blogId}`} id="latestBlogCard">
             <div className="content">
                 <div className="title">{title}</div>
                 <div className="date">{date}</div>

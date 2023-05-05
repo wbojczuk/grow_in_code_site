@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import inblogcontent from "../js/inblogcontent";
 import "../css/blogviewer/followme.css";
@@ -7,6 +7,8 @@ import "../css/blogviewer/followme.css";
 import Tags from "../components/blogviewer/Tags";
 import LoaderAnim from "../components/LoaderAnim";
 import SocialShare from "../components/blogviewer/SocialShare";
+import SideNav from "../components/blogviewer/SideNav";
+import embedNewsletter from "../js/newsletter";
 
 
 export default function BlogViewer(props){
@@ -20,11 +22,23 @@ export default function BlogViewer(props){
 
     const [description, setDescription] = React.useState("");
 
+    const params = useParams();
+
+
+
     React.useEffect(()=>{
         window.scrollTo(0,0);
-        props.setCheckLinks(["close"])
+        props.setCheckLinks(["close"]);
 
-        const currentID = (props.id) ? props.id : (jsdev.GETValues()).id;
+        // SET STATES TO INITIAL VALUE
+        setLoaderActive(true);
+        setTitle("");
+        setAuthor("");
+        setTags([]);
+        setDate("");
+        contentRef.current.innerHTML = "";
+    
+        const currentID = (props.id) ? props.id : params.blogid;
 
         // Gets data From the Blog API
         getData();
@@ -52,10 +66,12 @@ export default function BlogViewer(props){
             contentRef.current.innerHTML = contentData;
             inblogcontent();
             
+            embedNewsletter();
             Prism.highlightAll();
         }
 
-    }, [])
+    }, [params.blogid]);
+
 
 
     return(
@@ -64,23 +80,25 @@ export default function BlogViewer(props){
         
             <div id="blogViewerContainer">
 
-            {loaderActive && <LoaderAnim />}
+                {loaderActive && <LoaderAnim />}
 
-            {(!loaderActive) &&
-            <>
-                <div className="title">{title}</div>
-                <SocialShare title={title} description={description}/>
+                {(!loaderActive) &&
+                <>
+                    <div className="title">{title}</div>
+                    <SocialShare title={title} description={description}/>
 
-                <div className="date">{date}</div>
-                
-                <div className="author">By: <Link to="/about">{author}</Link></div>
-            </>
-            }
+                    <div className="date">{date}</div>
+                    
+                    <div className="author">By: <Link to="/about">{author}</Link></div>
+                </>
+                }
 
-            <div className="content" ref={contentRef}></div>
+                <div className="content" ref={contentRef}></div>
 
-            {(tags.length > 0) && <Tags tags={tags}/>}
-        </div>
+                {(tags.length > 0) && <Tags tags={tags}/>}
+            </div>
+
+            {(window.matchMedia("(min-width: 751px)").matches) && <SideNav />}
         </>
     )
 }

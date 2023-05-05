@@ -58,9 +58,6 @@ export default function Home(props){
         <div id="blueGlow1"></div>
         <div id="blueGlow2"></div>
         <div id="blueGlow3"></div>
-        <div id="newsLetterHighlighter">
-            <div id="newsletterHighlighterExit"></div>
-        </div>
             <div id="pageID" data-id="home"></div>
             <div id="sideBar"></div>
             <div id="allContent">

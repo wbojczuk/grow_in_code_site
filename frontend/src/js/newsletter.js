@@ -651,6 +651,12 @@ const newsLetterHTML = `
     
       if(document.getElementById("embeddedNewsletterWrapper")){
           document.getElementById("embeddedNewsletterWrapper").innerHTML = newsLetterHTML;
+          document.getElementById("embeddedNewsletterWrapper").insertAdjacentHTML("beforebegin",`
+          <div id="newsLetterHighlighter">
+            <div id="newsletterHighlighterExit"></div>
+          </div>
+          `);
+         
           document.querySelector(".ml-block-form").addEventListener("submit", ()=>{
             window.localStorage.setItem("embeddedNewsletterStatus", "true");
 

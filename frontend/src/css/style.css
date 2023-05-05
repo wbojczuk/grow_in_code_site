@@ -6,8 +6,12 @@
 #pageID{
     display: none;
 }
+#root{
+    /* position: relative; */
+}
 :root{
     --primary-color: #22AAA2;
+    --secondary-color: #1A1C1E;
 }
 
 body{
@@ -397,10 +401,11 @@ margin: 5vh 25% 10vh 25%;
 #embeddedNewsletterWrapper{
     display: inline-block;
     width: 60%;
-    height: 30vh;
+    height: 28vh;
     border-top: 2px solid #22AAA2;
     border-bottom: 2px solid #22AAA2;
     background-color: #1F242D;
+    z-index: 960;
 }
 #embeddedFormDesc{
     font-size: 1.3vw;
@@ -564,7 +569,7 @@ margin: 5vh 25% 10vh 25%;
     }
     #embeddedNewsletterWrapper{
         width: 90%;
-        height: 30vh;
+        height: 28vh;
     }
     #embeddedFormDesc{
         font-size: 1.5vh;

@@ -40,6 +40,11 @@
     font-weight: 400;
  }
 
+ .center #embeddedNewsletterWrapper{
+    width: 100%;
+    margin: 2vw 0;
+ }
+
 
  /* TAGS */
 

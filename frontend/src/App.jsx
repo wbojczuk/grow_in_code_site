@@ -21,7 +21,7 @@ export default function App(){
                 <Route index element={<Home setCheckLinks={setCheckLinks} />} />
                 <Route path="/blog" element={<Blog setCheckLinks={setCheckLinks} />} />
                 <Route path="/about" element={<About setCheckLinks={setCheckLinks} />} />
-                <Route path="/blogviewer" element={<BlogViewer setCheckLinks={setCheckLinks} />} />
+                <Route path="/blogviewer/:blogid" element={<BlogViewer setCheckLinks={setCheckLinks} />} />
                 <Route path="/blogcategory" element={<BlogCategory setCheckLinks={setCheckLinks} />} />
                 <Route path="/bestoftheblog" element={<BestOfTheBlog setCheckLinks={setCheckLinks} />} />
             </Routes>
