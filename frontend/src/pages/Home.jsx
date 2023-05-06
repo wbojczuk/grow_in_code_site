@@ -2,6 +2,7 @@ import React from "react";
 import BlogCard from "../components/blogCard";
 import embedNewsletter from "../js/newsletter";
 import { Link } from "react-router-dom";
+import titlechanger from "../js/titlechanger";
 
 export default function Home(props){
 
@@ -28,6 +29,7 @@ export default function Home(props){
     React.useEffect(()=>{
         window.scrollTo(0,0);
         embedNewsletter();
+        titlechanger("Grow In Code", "Technology Blog");
         props.setCheckLinks(["close"]);
 
         // GET LATEST BLOGS
@@ -80,12 +82,12 @@ export default function Home(props){
                 <section id="categoriesSection">
                     <div className="title">Code Categories</div>
                     <div id="categoryWrapper">
-                        <Link className="category react" to="/blogcategory?category=react"><span>React</span></Link>
-                        <Link className="category node" to="/blogcategory?category=node"><span>Node/Express</span></Link>
-                        <Link className="category javascript" to="/blogcategory?category=javascript"><span>Javascript</span></Link>
-                        <Link className="category html" to="/blogcategory?category=html"><span>HTML</span></Link>
-                        <Link className="category css" to="/blogcategory?category=css"><span>CSS</span></Link>
-                        <Link className="category php" to="/blogcategory?category=php"><span>PHP</span></Link>
+                        <Link className="category react" to="/blogcategory/react"><span>React</span></Link>
+                        <Link className="category node" to="/blogcategory/node"><span>Node/Express</span></Link>
+                        <Link className="category javascript" to="/blogcategory/javascript"><span>Javascript</span></Link>
+                        <Link className="category html" to="/blogcategory/html"><span>HTML</span></Link>
+                        <Link className="category css" to="/blogcategory/css"><span>CSS</span></Link>
+                        <Link className="category php" to="/blogcategory/php"><span>PHP</span></Link>
                     </div>
                 </section>
 

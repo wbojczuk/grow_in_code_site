@@ -1,8 +1,16 @@
 import React from "react";
-import BlogCard from "../components/BlogCard";
+import { useParams } from "react-router-dom";
+
+import titlechanger from "../js/titlechanger";
 import "../css/blogcategory.css";
+
 import LoaderAnim from "../components/LoaderAnim";
+import BlogCard from "../components/blogCard";
+
+
 export default function BlogCategory(props){
+
+    const params = useParams();
 
     const [loaderActive, setLoaderActive] = React.useState(true);
 
@@ -13,7 +21,7 @@ export default function BlogCategory(props){
         )
     });
 
-    const category = new URLSearchParams(window.location.search).get("category");
+    const category = params.category;
 
     let categoryTitle = "";
     let categoryDesc = "";
@@ -49,6 +57,7 @@ export default function BlogCategory(props){
     React.useEffect(()=>{
         window.scrollTo(0,0);
         props.setCheckLinks(["close"]);
+        titlechanger(`${categoryTitle} Blogs`, "Grow In Code");
 
         getCategoryPosts();
         async function getCategoryPosts(){

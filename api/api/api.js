@@ -162,7 +162,7 @@ router.delete("/deleteblog/:blogid", async (req, res)=>{
 
 // ******************* END BLOGS API
 
-router.get("/blogsanddrafts", (req, res)=>{
+router.get("/blogsanddrafts", async(req, res)=>{
     try{
         const result = await (db.blogDatabase.collection("blog")
         .find({"metadata.isDraft": {$exists: true}}, {projection: {metadata: 1}} )

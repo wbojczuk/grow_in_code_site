@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 
 import inblogcontent from "../js/inblogcontent";
+import titlechanger from "../js/titlechanger";
 import "../css/blogviewer/followme.css";
 import "../css/faq.css";
 
@@ -56,6 +57,7 @@ export default function BlogViewer(props){
             const currentDate = new Date(parseInt(jsonBlogData._id));
 
             setLoaderActive(false);
+            titlechanger(blogData.title);
             if(!props.notitle){
                 setTitle(blogData.title);
             }
