@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 export default function SideNav(){
     return(
         <div id="sideNav">
+            
             <Link to="/about" id="sideNavAboutMe">
                 <div className="title">About Me</div>
             </Link>
@@ -29,8 +30,8 @@ export default function SideNav(){
                 <Link to="/blogviewer/1683046326716">
                     <div className="title">Working With useEffect</div>
                 </Link>
-                <Link to="/blogviewer/1683046326716">
-                    <div className="title">Working With useEffect</div>
+                <Link to="/blogviewer/1683207802941">
+                    <div className="title">Linux Shell Commands</div>
                 </Link>
             </div>
 

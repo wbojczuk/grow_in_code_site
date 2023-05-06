@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 
 import inblogcontent from "../js/inblogcontent";
 import "../css/blogviewer/followme.css";
+import "../css/faq.css";
 
 import Tags from "../components/blogviewer/Tags";
 import LoaderAnim from "../components/LoaderAnim";
