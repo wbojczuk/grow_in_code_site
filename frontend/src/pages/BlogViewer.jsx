@@ -57,7 +57,7 @@ export default function BlogViewer(props){
             const currentDate = new Date(parseInt(jsonBlogData._id));
 
             setLoaderActive(false);
-            titlechanger(blogData.title);
+            if(!props.changeTitle){titlechanger(blogData.title);}
             if(!props.notitle){
                 setTitle(blogData.title);
             }

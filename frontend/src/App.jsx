@@ -7,6 +7,7 @@ import About from "./pages/About";
 import BlogCategory from "./pages/BlogCategory";
 import BlogViewer from "./pages/BlogViewer";
 import BestOfTheBlog from "./pages/BestOfTheBlog";
+import Contact from "./pages/Contact";
 
 import Nav from "./components/nav/Nav";
 import Footer from "./components/Footer";
@@ -24,6 +25,7 @@ export default function App(){
                 <Route path="/blogviewer/:blogid" element={<BlogViewer setCheckLinks={setCheckLinks} />} />
                 <Route path="/blogcategory/:category" element={<BlogCategory setCheckLinks={setCheckLinks} />} />
                 <Route path="/bestoftheblog" element={<BestOfTheBlog setCheckLinks={setCheckLinks} />} />
+                <Route path="/contact" element={<Contact setCheckLinks={setCheckLinks} />} />
             </Routes>
             <Footer />
         </BrowserRouter>

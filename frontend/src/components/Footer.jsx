@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 export default function Footer(){
     return(
     <footer>
@@ -14,9 +15,9 @@ export default function Footer(){
         </div>
 
         <div className="contact">
-        <div className="title">Contact</div>
+        <div className="title">Resources</div>
         <div className="contact-items">
-            <a href="mailto:williambojczuk@gmail.com" target="_blank">williambojczuk@gmail.com</a>
+            <Link to="/contact">Contact Me</Link>
             <a href="https://williambojczuk.dev" target="_blank">williambojczuk.dev</a>
         </div>
         </div>

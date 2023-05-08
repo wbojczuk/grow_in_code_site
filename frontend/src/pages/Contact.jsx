@@ -2,10 +2,9 @@ import React from "react";
 import BlogViewer from "./BlogViewer";
 import titlechanger from "../js/titlechanger";
 
-export default function About(props){
+export default function Contact(props){
     React.useEffect(()=>{
-
-        titlechanger("About Me", "Grow In Code");
+        titlechanger("Contact", "Grow In Code")
         window.scrollTo(0,0);
         props.setCheckLinks(["close"])
 
@@ -14,9 +13,7 @@ export default function About(props){
         <>
             <div id="pageID" data-id="about"></div>
             {/* notitle={true} */}
-            <BlogViewer changeTitle={true} setCheckLinks={props.setCheckLinks} id={1681757364340}/>
+            <BlogViewer changeTitle={true} setCheckLinks={props.setCheckLinks} id={1683562871832}/>
         </>
     )
 }
-
-// ADD STUFF FOR qAndAContainer

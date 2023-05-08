@@ -4,6 +4,7 @@
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
+    overflow: hidden;
     width: 20%;
     height: calc(100% - 5vw);
     border-left: 2px solid var(--primary-color);
