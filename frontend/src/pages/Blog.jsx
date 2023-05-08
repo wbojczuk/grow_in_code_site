@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import BlogCard2 from "../components/BlogCard2";
 import LatestBlog from "../components/LatestBlog";
+import titlechanger from "../js/titlechanger";
 
 export default function Blog(props){
 
@@ -15,6 +16,7 @@ export default function Blog(props){
     React.useEffect(()=>{
         window.scrollTo(0,0);
         props.setCheckLinks(["close"]);
+        titlechanger("Blog", "Grow In Code");
 
         getFeaturedPosts();
         async function getFeaturedPosts(){
